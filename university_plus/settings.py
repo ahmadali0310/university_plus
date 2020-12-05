@@ -25,7 +25,7 @@ SECRET_KEY = 'v^x_n#882y9s67cipz!3zb5awub@-n72$%)b1i(sjn)#g^$acu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['seitpeshawar.herokuapp.com']
 
 
 # Application definition
@@ -127,6 +127,9 @@ EMAIL_USE_TLS = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 STATIC_URL = '/static/'
 
