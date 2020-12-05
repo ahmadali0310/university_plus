@@ -2,6 +2,8 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls.defaults import *
+
 from . import views
 
 urlpatterns = [
@@ -16,4 +18,5 @@ urlpatterns = [
     path('registration/', views.registration, name="registration"),
     path('trainer_desc/<int:id>', views.trainer_desc, name="trainer_desc"),
     path('courseDetail/<int:id>', views.courseDetail, name="courseDetail"),
+    (r'^favicon\.ico$', 'django.views.generic.simple.redirect_to', {'url': '/static/img/favicon.ico'}),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
