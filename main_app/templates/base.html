@@ -11,23 +11,25 @@
     <!-- <link rel="manifest" href="site.webmanifest"> -->
     <link rel="shortcut icon" type="image/x-icon" href="#" />
     <!-- Place favicon.ico in the root directory -->
-  <script>
+    <script>
       function getCookie(name) {
-    let cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-        const cookies = document.cookie.split(';');
-        for (let i = 0; i < cookies.length; i++) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== "") {
+          const cookies = document.cookie.split(";");
+          for (let i = 0; i < cookies.length; i++) {
             const cookie = cookies[i].trim();
             // Does this cookie string begin with the name we want?
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
+            if (cookie.substring(0, name.length + 1) === name + "=") {
+              cookieValue = decodeURIComponent(
+                cookie.substring(name.length + 1)
+              );
+              break;
             }
+          }
         }
-    }
-    return cookieValue;
-}
-const csrftoken = getCookie('csrftoken');
+        return cookieValue;
+      }
+      const csrftoken = getCookie("csrftoken");
     </script>
     <!-- CSS here -->
     <link
@@ -90,7 +92,6 @@ const csrftoken = getCookie('csrftoken');
                       class="logo"
                       src="{% static '../static/img/logo.png' %} "
                       alt=""
-                      style="width: 17rem; height: 80px"
                     />
                   </a>
                 </div>
@@ -162,7 +163,6 @@ const csrftoken = getCookie('csrftoken');
                       class="logo"
                       src="{% static '../static/img/logo.png' %} "
                       alt=""
-                      style="width: 20rem; height: 80px"
                     />
                   </a>
                 </div>
@@ -245,9 +245,7 @@ const csrftoken = getCookie('csrftoken');
                 <script>
                   document.write(new Date().getFullYear());
                 </script>
-                All rights reserved | This template is made with
-                <i class="fa fa-heart-o" aria-hidden="true"></i> by
-                <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                All rights reserved
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 Maintain by AHMAD ALI
               </p>
@@ -260,7 +258,7 @@ const csrftoken = getCookie('csrftoken');
     {% comment %} End footer {% endcomment %}
 
     <form id="test-form" class="white-popup-block mfp-hide">
-    {% csrf_token %}
+      {% csrf_token %}
       <div class="popup_box">
         <div class="popup_inner">
           <div class="logo text-center">
@@ -274,20 +272,32 @@ const csrftoken = getCookie('csrftoken');
             </a>
           </div>
           <h3>Sign in</h3>
-          <form action="" id="regisration_form" >
+          <form action="" id="regisration_form">
             <div class="row">
               <div class="col-xl-12 col-md-12">
-                <input id="name" type="text" placeholder="Enter your FullName" />
+                <input
+                  id="name"
+                  type="text"
+                  placeholder="Enter your FullName"
+                />
               </div>
 
               <div class="col-xl-12 col-md-12">
                 <input id="email" type="email" placeholder="Enter email" />
               </div>
               <div class="col-xl-12 col-md-12">
-                <input id="number" type="text" placeholder="Enter your Whatsapp No" />
+                <input
+                  id="number"
+                  type="text"
+                  placeholder="Enter your Whatsapp No"
+                />
               </div>
               <div class="col-xl-12 col-md-12">
-                <input id="country" type="text" placeholder="Enter your Country" />
+                <input
+                  id="country"
+                  type="text"
+                  placeholder="Enter your Country"
+                />
               </div>
               <div class="col-xl-12 col-md-12">
                 <select
@@ -334,14 +344,18 @@ const csrftoken = getCookie('csrftoken');
                 </select>
               </div>
               <div class="col-xl-12 col-md-12">
-                <input id="address" type="text" placeholder="Enter Your Adress" />
+                <input
+                  id="address"
+                  type="text"
+                  placeholder="Enter Your Adress"
+                />
               </div>
               <div class="col-xl-12 col-md-12">
                 <input id="cnic" type="text" placeholder="Enter Your CNIC No" />
               </div>
               <div class="col-xl-12 col-md-12">
                 <select
-                id="payment"
+                  id="payment"
                   style="
                     width: 100%;
                     border: none;
@@ -365,7 +379,9 @@ const csrftoken = getCookie('csrftoken');
                 </select>
               </div>
               <div class="col-xl-12" id="remove">
-                <button type="submit" id="submit" class="boxed_btn_orange">Register</button>
+                <button type="submit" id="submit" class="boxed_btn_orange">
+                  Register
+                </button>
               </div>
             </div>
           </form>
@@ -438,7 +454,6 @@ const csrftoken = getCookie('csrftoken');
     <script src="{% static '../static/js/mail-script.js' %}"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-
     <script src="{% static '../static/js/main.js' %}"></script>
 
     <script>
@@ -479,6 +494,8 @@ const csrftoken = getCookie('csrftoken');
             });
           });
       };
+      fetch_trainer();
+
       document.getElementById("teachers").addEventListener("change", (e) => {
         let trainer = e.target.value;
         document.getElementById(
@@ -507,113 +524,113 @@ const csrftoken = getCookie('csrftoken');
         const removing = document.getElementById("submit");
         document.getElementById("remove").removeChild(removing);
         remove.innerHTML = `<button type="submit" id="submit" class="boxed_btn_orange">Pease Wait...</button>`;
-        let name = document.getElementById('name').value;
-        let email = document.getElementById('email').value;
-        let number = document.getElementById('number').value;
-        let counrty = document.getElementById('country').value;
-        let teachers = document.getElementById('teachers').value;
-        let cources = document.getElementById('cources').value;
-        let address = document.getElementById('address').value;
-        let cnic = document.getElementById('cnic').value;
-        let payment = document.getElementById('payment').value;
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let number = document.getElementById("number").value;
+        let counrty = document.getElementById("country").value;
+        let teachers = document.getElementById("teachers").value;
+        let cources = document.getElementById("cources").value;
+        let address = document.getElementById("address").value;
+        let cnic = document.getElementById("cnic").value;
+        let payment = document.getElementById("payment").value;
 
-        console.log(name + email + number + counrty + teachers + cources + address + cnic +payment);
+        console.log(
+          name +
+            email +
+            number +
+            counrty +
+            teachers +
+            cources +
+            address +
+            cnic +
+            payment
+        );
 
+        fetch("/registration/", {
+          method: "POST",
+          headers: {
+            Accept: "application.json, text/plain, */*",
+            "Content-type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+            "X-CSRFToken": csrftoken,
+          },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            number: number,
+            counrty: counrty,
+            teachers: teachers,
+            cources: cources,
+            address: address,
+            cnic: cnic,
+            payment: payment,
+          }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data["created"] == true) {
+              let name = (document.getElementById("name").value = "");
+              let email = (document.getElementById("email").value = "");
+              let number = (document.getElementById("number").value = "");
+              let counrty = (document.getElementById("country").value = "");
+              let teachers = (document.getElementById("teachers").value = "");
+              let cources = (document.getElementById("cources").value = "");
+              let address = (document.getElementById("address").value = "");
+              let cnic = (document.getElementById("cnic").value = "");
+              let payment = (document.getElementById("payment").value = "");
 
-
-          fetch("/registration/", {
-    method: "POST",
-    headers: {
-      "Accept": "application.json, text/plain, */*",
-      "Content-type": "application/json",
-      "X-Requested-With": "XMLHttpRequest",
-      "X-CSRFToken": csrftoken,
-    },
-    body:JSON.stringify({
-      'name': name,
-      'email': email,
-      'number': number,
-      'counrty': counrty,
-      'teachers': teachers,
-      'cources': cources,
-      'address': address,
-      'cnic': cnic,
-      'payment': payment
-    })
-  })
-    .then((res) => res.json())
-    .then((data) => {
-
-      if(data['created'] == true){
-
-        let name = document.getElementById('name').value = "";
-        let email = document.getElementById('email').value = "";
-        let number = document.getElementById('number').value= "";
-        let counrty = document.getElementById('country').value= "";
-        let teachers = document.getElementById('teachers').value= "";
-        let cources = document.getElementById('cources').value= "";
-        let address = document.getElementById('address').value= "";
-        let cnic = document.getElementById('cnic').value= "";
-        let payment = document.getElementById('payment').value= "";
-
-        swal("Registration Succussfull!", "You will Receive The Confirmatin Email Soon","success");
-        const html_button = `<button type="submit" id="submit" class="boxed_btn_orange">Register</button>`
-        remove.innerHTML = html_button;
-      } else {
-        swal("Registration UnSuccussfull!", "error");
-
-      }
-    });
+              swal(
+                "Registration Succussfull!",
+                "You will Receive The Confirmatin Email Soon",
+                "success"
+              );
+              const html_button = `<button type="submit" id="submit" class="boxed_btn_orange">Register</button>`;
+              remove.innerHTML = html_button;
+            } else {
+              swal("Registration UnSuccussfull!", "error");
+            }
+          });
       });
       document.getElementById("contactForm").addEventListener("submit", (e) => {
-        e.preventDefault();
-        message = document.getElementById("message").value;
-        message = document.getElementById("name").value;
-        message = document.getElementById("email").value;
-        message = document.getElementById("subject").value;
-
-      })
-            document.getElementById("contactForm").addEventListener("submit", (e) => {
         e.preventDefault();
         let message = document.getElementById("message").value;
         let name = document.getElementById("name").value;
         let email = document.getElementById("email").value;
         let subject = document.getElementById("subject").value;
 
-                  fetch("/message/", {
-    method: "POST",
-    headers: {
-      "Accept": "application.json, text/plain, */*",
-      "Content-type": "application/json",
-      "X-Requested-With": "XMLHttpRequest",
-      "X-CSRFToken": csrftoken,
-    },
-    body:JSON.stringify({
-      'message': message,
-      'name': name,
-      'email': email,
-      'subject': subject
-    })
-  })
-    .then((res) => res.json())
-    .then((data) => {
+        fetch("/message/", {
+          method: "POST",
+          headers: {
+            Accept: "application.json, text/plain, */*",
+            "Content-type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+            "X-CSRFToken": csrftoken,
+          },
+          body: JSON.stringify({
+            message: message,
+            name: name,
+            email: email,
+            subject: subject,
+          }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data["created"] == true) {
+              let name = (document.getElementById("name").value = "");
+              let email = (document.getElementById("email").value = "");
+              let number = (document.getElementById("message").value = "");
+              let counrty = (document.getElementById("subject").value = "");
 
-      if(data['created'] == true){
-
-        let name = document.getElementById('name').value = "";
-        let email = document.getElementById('email').value = "";
-        let number = document.getElementById('message').value= "";
-        let counrty = document.getElementById('subject').value= "";
-
-        swal("Sending Message Succussfull!", "Thanks For Sending Message","success");
-      } else {
-        swal("Sending Message UnSuccussfull!", "error");
-
-      }
-    });
+              swal(
+                "Sending Message Succussfull!",
+                "Thanks For Sending Message",
+                "success"
+              );
+            } else {
+              swal("Sending Message UnSuccussfull!", "error");
+            }
+          });
       });
-
-      fetch_trainer();
     </script>
   </body>
 </html>
